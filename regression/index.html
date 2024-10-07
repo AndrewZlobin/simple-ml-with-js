@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Regression</title>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <!--<script src="https://unpkg.com/ml5@latest/dist/ml5.min.js"></script>-->
+    <!--<link rel="stylesheet" href="style.css" />-->
+</head>
+<body>
+    <div class="p-3">
+        <div class="mb-3">
+            <label for="year" class="form-label">Year of the car when it was bought</label>
+            <input type="number" class="form-control" min="1992" max="2020" step="1" id="year">
+        </div>
+        <div class="mb-3">
+            <label for="km_driven" class="form-label">Number of Kilometres the car is driven</label>
+            <input type="number" class="form-control" id="km_driven" >
+        </div>
+        <div class="mb-3">
+            <label for="fuel" class="form-label">Fuel type of car (petrol / diesel / CNG / LPG / electric)</label>
+            <select id="fuel" class="form-select" aria-label="Fuel type of car (petrol / diesel / CNG / LPG / electric)">
+                <option value="Petrol" selected>Petrol</option>
+                <option value="Diesel">Diesel</option>
+                <option value="CNG">CNG</option>
+                <option value="LPG">LPG</option>
+                <option value="Electric">Electric</option>
+              </select>
+        </div>
+        <div class="mb-3">
+            <label for="seller_type" class="form-label">Tells if a Seller is Individual or a Dealer</label>
+            <select id="seller_type" class="form-select" aria-label="Tells if a Seller is Individual or a Dealer">
+                <option value="Individual" selected>Individual</option>
+                <option value="Dealer">Dealer</option>
+                <option value="Trustmark Dealer">Trustmark Dealer</option>
+              </select>
+        </div>
+        <div class="mb-3">
+            <label for="transmission" class="form-label">Gear transmission of the car (Automatic/Manual)</label>
+            <select id="transmission" class="form-select" aria-label="Gear transmission of the car (Automatic/Manual)">
+                <option value="Manual" selected>Manual</option>
+                <option value="Automatic">Automatic</option>
+              </select>
+        </div>
+
+        <div class="mb-3">
+            <label for="owner" class="form-label">Number of previous owners of the car.</label>
+            <select id="owner" class="form-select" aria-label="Number of previous owners of the car.">
+                <option value="First Owner" selected>First Owner</option>
+                <option value="Second Owner">Second Owner</option>
+                <option value="Third Owner">Third Owner</option>
+                <option value="Fourth & Above Owner">Fourth & Above Owner</option>
+                <option value="Test Drive Car">Test Drive Car</option>
+              </select>
+        </div>
+
+        <button id="calculateBtn" type="button" class="btn btn-primary btn-block mb-3" disabled>Calculate Price</button>
+        <div id="calculationResultsContainer" class="d-none">
+            <span>Expected price: </span>
+            <span id="calculationResults"></span>
+        </div>
+    </div>
+    <script src="./brain.js"></script>
+</body>
+</html>
