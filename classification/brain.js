@@ -154,10 +154,10 @@ function predictScore() {
 
     classifier.classify(input, (results) => {
         const result = results[0];
-        console.log(results);
+        const {label, confidence} = result;
 
         const resultsContainer = document.getElementById('classifyResult');
-        resultsContainer.textContent = `The weather would be ${result.label} (with confidence ${result.confidence})`;
+        resultsContainer.textContent = `The weather would be ${label} (with confidence ${confidence.toFixed(2)})`;
         resultsContainer.classList.remove('d-none');
     });
 }
