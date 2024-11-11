@@ -156,14 +156,36 @@ function predictScore() {
         const result = results[0];
         const {label, confidence} = result;
 
-        const resultsContainer = document.getElementById('classifyResult');
-        resultsContainer.textContent = `The weather would be ${label} (with confidence ${confidence.toFixed(2)})`;
-        resultsContainer.classList.remove('d-none');
+        resetImageContainers();
+        const resultsContainser = document.getElementById(`result-${label?.toLowerCase() ?? ''}`);
+        if (resultsContainser) {
+            resultsContainser.getElementsByTagName('img')[0]
+                .classList
+                .remove('transparent-img');
+            resultsContainser.getElementsByTagName('span')[0].textContent = isNaN(confidence)
+                 ? 'with unknown confidence'
+                 : `with confidence ${confidence.toFixed(2)}`;
+        }
+    });
+}
+
+function resetImageContainers() {
+    ['result-sunny', 'result-cloudy', 'result-rainy','result-snowy'].forEach(id => {
+        const container = document.getElementById(id);
+        const image = container.getElementsByTagName('img')[0];
+        if (!image.classList.contains('transparent-img')) {
+            image.classList.add('transparent-img');
+        }
+
+        const span = container.getElementsByTagName('span')[0];
+        span.textContent = '';
     });
 }
 
 // Initialize the app
 async function init() {
+    resetImageContainers();
+
     try {
         await loadAndProcessData();
         normalizeData();
