@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Classification</title>
+    <script src="https://unpkg.com/ml5@1/dist/ml5.js"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="container p-3">
+        <div class="row">
+            <div class="col-xs-12 mb-3">
+                <div class="d-grid">
+                    <label for="uploadImage" class="btn btn-secondary">Upload image of your dog</label>
+                    <input id="uploadImage" type="file" class="d-none" accept="image/*" />
+                </div>
+            </div>
+            <div class="col-xs-12 mb-3">
+                <div class="d-grid">
+                    <button id="classifyDogEmotion" disabled type="button" class="btn btn-primary">Identify emotion</button>
+                </div>
+            </div>
+            <div class="col-xs-12 mb-2">
+                <p id="resultContainer" class="h5"></p>
+            </div>
+            <div class="col-xs-12">
+                <img id="imageContainer"
+                     src="https://placehold.co/300x150/0d6efd/white?text=Dog+image"
+                     class="d-none img-fluid rounded-start"
+                     alt="Dog Image">
+            </div>
+        </div>
+    </div>
+
+    <script src="brain.js"></script>
+</body>
+</html>
